@@ -1,0 +1,215 @@
+Python Code:
+
+S="6,_,_,_,24,_,_"
+S_list = S.split(',')
+print("S_list :",S_list)
+len_of_S = len(S_list)
+print("Length of S_list :",len_of_S)
+
+first_ele = S_list[0]
+first_ele_index = 0
+print("First ele :",first_ele)
+print("First ele index :",first_ele_index)
+
+last_ele = S_list[(len_of_S)-1]
+last_ele_index = len_of_S -1
+print("Last ele :",last_ele)
+print("Last ele index :",last_ele_index)
+
+#prev_calc = 0
+#prev_calc_index =0
+
+for ele in range(len_of_S):
+    print("***************")
+    print("List Element Index:",ele)
+    print("List Element :",S_list[ele])
+    a = S_list[ele]
+    print("Current Ele :",a)
+    new_str = []
+    #if (a.isdigit() == True and ele == 0 and prev_calc == 0 and prev_calc_index == 0 and last_ele_index == 0):
+    if (a.isdigit() == True and ele == 0 ):
+        new_str.append(a)
+        print("new_str :",new_str)
+        prev_calc = a
+        prev_calc_index =  new_str.index(a)
+        print("prev calc :",prev_calc)
+        print("prev calc index :",prev_calc_index)
+    out_prev_calc=prev_calc
+    out_prev_calc_index=prev_calc_index
+    print("out prev calc :",out_prev_calc)
+    print("out prev calc index:",out_prev_calc_index)
+    if (a.isdigit() == True and ele != 0 and len_of_S != ele):
+        low_ind = out_prev_calc_index
+        high_ind = ele
+        low_val = out_prev_calc
+        high_val = S_list[ele]
+        print("low_ind :",low_ind)
+        print("high_ind :",high_ind)
+        print("low_val :",low_val)
+        print("high_val :",high_val)
+        calc = (int(low_val)+int(high_val))/(int(high_ind) - int(low_ind) + 1)
+        print("calc :",calc)
+        int_low_ind = int(low_ind)
+        int_high_ind = int(high_ind)
+        print("int_low_ind :",int_low_ind)
+        print("int_high_ind :",int_high_ind)
+        out_calc = calc
+        print("out calc :",out_calc)
+        new_str1 = []
+        for j in range(int_high_ind - int_low_ind + 1):
+            new_str1.append(calc)
+        new_str[int_low_ind:int_high_ind] = new_str1[:]        
+        print("new_str :",new_str)
+        print("new_str1 :",new_str1)
+        out_prev_calc1=calc
+        out_prev_calc1_index=int_high_ind
+        print("out prev calc1 :",out_prev_calc1)
+        print("out prev calc1 index:",out_prev_calc1_index)
+    out_prev_calc=out_prev_calc1
+    out_prev_calc_index=out_prev_calc1_index
+    print("out prev calc :",out_prev_calc)
+    print("out prev calc index:",out_prev_calc_index)
+    if (a.isdigit() == False and ele != 0 and len_of_S-1 == ele):
+        low_ind = out_prev_calc_index
+        high_ind = ele
+        low_val = out_prev_calc
+        high_val = 0
+        print("low_ind :",low_ind)
+        print("high_ind :",high_ind)
+        print("low_val :",low_val)
+        print("high_val :",high_val)
+        calc = (int(low_val)+int(high_val))/(int(high_ind) - int(low_ind) + 1)
+        print("calc :",calc)
+        int_low_ind = int(low_ind)
+        int_high_ind = int(high_ind)
+        print("int_low_ind :",int_low_ind)
+        print("int_high_ind :",int_high_ind)
+        out_calc = calc
+        print("out calc :",out_calc)
+        new_str1 = []
+        for j in range(int_high_ind - int_low_ind + 1):
+            new_str1.append(calc)
+        new_str[int_low_ind:int_high_ind] = new_str1[:]        
+        print("new_str :",new_str)
+        print("new_str1 :",new_str1)
+        out_prev_calc1=calc
+        out_prev_calc1_index=int_high_ind
+        print("out prev calc1 :",out_prev_calc1)
+        print("out prev calc1 index:",out_prev_calc1_index)
+    out_prev_calc=out_prev_calc1
+    out_prev_calc_index=out_prev_calc1_index
+    print("out prev calc :",out_prev_calc)
+    print("out prev calc index:",out_prev_calc_index)
+full_out_prev_calc=out_prev_calc
+full_out_prev_calc_index=out_prev_calc_index
+print("full out prev calc :",full_out_prev_calc)
+print("full out prev calc index:",full_out_prev_calc_index)
+
+################
+output:
+
+S_list : ['6', '_', '_', '_', '24', '_', '_']
+Length of S_list : 7
+First ele : 6
+First ele index : 0
+Last ele : _
+Last ele index : 6
+***************
+List Element Index: 0
+List Element : 6
+Current Ele : 6
+new_str : ['6']
+prev calc : 6
+prev calc index : 0
+out prev calc : 6
+out prev calc index: 0
+out prev calc : 2.0
+out prev calc index: 6
+out prev calc : 2.0
+out prev calc index: 6
+***************
+List Element Index: 1
+List Element : _
+Current Ele : _
+out prev calc : 6
+out prev calc index: 0
+out prev calc : 2.0
+out prev calc index: 6
+out prev calc : 2.0
+out prev calc index: 6
+***************
+List Element Index: 2
+List Element : _
+Current Ele : _
+out prev calc : 6
+out prev calc index: 0
+out prev calc : 2.0
+out prev calc index: 6
+out prev calc : 2.0
+out prev calc index: 6
+***************
+List Element Index: 3
+List Element : _
+Current Ele : _
+out prev calc : 6
+out prev calc index: 0
+out prev calc : 2.0
+out prev calc index: 6
+out prev calc : 2.0
+out prev calc index: 6
+***************
+List Element Index: 4
+List Element : 24
+Current Ele : 24
+out prev calc : 6
+out prev calc index: 0
+low_ind : 0
+high_ind : 4
+low_val : 6
+high_val : 24
+calc : 6.0
+int_low_ind : 0
+int_high_ind : 4
+out calc : 6.0
+new_str : [6.0, 6.0, 6.0, 6.0, 6.0]
+new_str1 : [6.0, 6.0, 6.0, 6.0, 6.0]
+out prev calc1 : 6.0
+out prev calc1 index: 4
+out prev calc : 6.0
+out prev calc index: 4
+out prev calc : 6.0
+out prev calc index: 4
+***************
+List Element Index: 5
+List Element : _
+Current Ele : _
+out prev calc : 6
+out prev calc index: 0
+out prev calc : 6.0
+out prev calc index: 4
+out prev calc : 6.0
+out prev calc index: 4
+***************
+List Element Index: 6
+List Element : _
+Current Ele : _
+out prev calc : 6
+out prev calc index: 0
+out prev calc : 6.0
+out prev calc index: 4
+low_ind : 4
+high_ind : 6
+low_val : 6.0
+high_val : 0
+calc : 2.0
+int_low_ind : 4
+int_high_ind : 6
+out calc : 2.0
+new_str : [2.0, 2.0, 2.0]
+new_str1 : [2.0, 2.0, 2.0]
+out prev calc1 : 2.0
+out prev calc1 index: 6
+out prev calc : 2.0
+out prev calc index: 6
+full out prev calc : 2.0
+full out prev calc index: 6
